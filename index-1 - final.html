@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Selective Career Consultancy</title>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #FFF8F0;
+      color: #4E342E;
+    }
+
+    header {
+      background: linear-gradient(135deg, #FF7A00, #FF9F1C);
+      color: white;
+      padding: 20px 8%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .logo span {
+      color: #FFF1D6;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #FFE0B2;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 80px 0;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-text h1 {
+      font-size: 52px;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span {
+      color: #FFF1D6;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #FFF8F0;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons a {
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      margin-right: 15px;
+      font-weight: bold;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #FFF1D6;
+      color: #E65100;
+    }
+
+    .btn-primary:hover {
+      background: #FFE0B2;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #E65100;
+    }
+
+    .btn-secondary:hover {
+      background: #FFF3E0;
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+      min-width: 300px;
+    }
+
+    .hero-image i {
+      font-size: 250px;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      color: #E65100;
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #795548;
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: #FFFCF8;
+      border: 1px solid #FFE0B2;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(255, 122, 0, 0.10);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-card i {
+      font-size: 50px;
+      color: #FF7A00;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      color: #E65100;
+      margin-bottom: 15px;
+    }
+
+    /* AUDIENCE SECTION */
+
+    .audience {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 35px;
+    }
+
+    .audience-box {
+      background: #FFFCF8;
+      border: 1px solid #FFD3A1;
+      padding: 40px;
+      border-radius: 22px;
+      box-shadow: 0 5px 15px rgba(255, 122, 0, 0.08);
+      transition: 0.3s;
+    }
+
+    .audience-box:hover {
+      transform: translateY(-6px);
+    }
+
+    .audience-box h3 {
+      color: #E65100;
+      margin-bottom: 25px;
+      font-size: 32px;
+    }
+
+    .audience-box ul {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .audience-box ul li {
+      margin-bottom: 18px;
+      font-size: 20px;
+      color: #4E342E;
+    }
+
+    .audience-box ul li i {
+      color: #FF8A00;
+      margin-right: 12px;
+    }
+
+    .popup-btn {
+      width: 240px;
+      padding: 16px;
+      border: none;
+      background: #FF8500;
+      color: white;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .popup-btn:hover {
+      background: #E66A00;
+    }
+
+    /* CONTACT */
+
+    .company-info {
+      background: #FFFCF8;
+      border: 1px solid #FFE0B2;
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 5px 15px rgba(255, 122, 0, 0.10);
+    }
+
+    .company-info h2 {
+      color: #E65100;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .info-card {
+      background: #FFF8F0;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .info-card i {
+      font-size: 40px;
+      color: #FF7A00;
+      margin-bottom: 15px;
+    }
+
+    .info-card h3 {
+      color: #E65100;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #BF360C;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* POPUP */
+
+    .popup-overlay {
+      width: 100%;
+      height: 100vh;
+      background: rgba(0,0,0,0.7);
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .popup-box {
+      background: #FFFDF9;
+      width: 100%;
+      max-width: 520px;
+      padding: 30px;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: #E65100;
+    }
+
+    .popup-box h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #E65100;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #FFCC80;
+      border-radius: 8px;
+      background: #FFF8F0;
+      outline: none;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      background: #FF7A00;
+      color: white;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #E65100;
+    }
+
+    .back-home {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #FF7A00;
+      color: white;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 55px;
+      font-size: 22px;
+      text-decoration: none;
+      z-index: 999;
+    }
+
+    @media(max-width:768px) {
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .hero-text h1 {
+        font-size: 38px;
+      }
+
+      .audience-box {
+        padding: 30px;
+      }
+
+      .popup-btn {
+        width: 100%;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body id="home">
+
+  <header>
+
+    <nav>
+
+      <div class="logo">
+        Selective <span>Career</span>
+      </div>
+
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#" onclick="openCandidatePopup()">Candidates</a></li>
+        <li><a href="#" onclick="openCompanyPopup()">Companies</a></li>
+        <li><a href="#contact-info">Contact</a></li>
+      </ul>
+
+    </nav>
+
+    <div class="hero">
+
+      <div class="hero-text">
+
+        <h1>Pan India <span>Job Consultancy</span></h1>
+
+        <p>
+          Selective Career is a trusted recruitment consultancy connecting talented candidates
+          with top companies across India.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="mailto:selectivecareer@gmail.com" class="btn-primary">
+            <i class="fa-solid fa-envelope"></i> Mail Us
+          </a>
+
+          <a href="https://wa.me/919999999999" class="btn-secondary">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hero-image">
+        <i class="fa-solid fa-briefcase"></i>
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Professional Recruitment Solutions Across India</p>
+    </div>
+
+    <div class="services">
+
+      <div class="service-card" onclick="openServicePopup('Permanent Hiring')">
+        <i class="fa-solid fa-user-tie"></i>
+        <h3>Permanent Hiring</h3>
+        <p>End-to-end recruitment solutions for permanent employees.</p>
+      </div>
+
+      <div class="service-card" onclick="openServicePopup('Bulk Hiring')">
+        <i class="fa-solid fa-users"></i>
+        <h3>Bulk Hiring</h3>
+        <p>Large-scale recruitment support for startups and enterprises.</p>
+      </div>
+
+      <div class="service-card" onclick="openServicePopup('Corporate Staffing')">
+        <i class="fa-solid fa-building"></i>
+        <h3>Corporate Staffing</h3>
+        <p>Staffing services for companies in multiple industries.</p>
+      </div>
+
+      <div class="service-card" onclick="openServicePopup('Freshers Jobs')">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h3>Freshers Jobs</h3>
+        <p>Career opportunities for fresh graduates and diploma candidates.</p>
+      </div>
+
+      <div class="service-card" onclick="openServicePopup('IT Recruitment')">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>IT Recruitment</h3>
+        <p>Skilled IT professionals for software companies.</p>
+      </div>
+
+      <div class="service-card" onclick="openServicePopup('Retail Hiring')">
+        <i class="fa-solid fa-store"></i>
+        <h3>Retail Hiring</h3>
+        <p>Retail sales and showroom staffing recruitment.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CANDIDATES & COMPANIES -->
+
+  <section id="audience-section">
+
+    <div class="section-title">
+      <h2>Who We Help</h2>
+      <p>Career Support for Candidates & Hiring Solutions for Companies</p>
+    </div>
+
+    <div class="audience">
+
+      <div class="audience-box">
+
+        <h3>
+          <i class="fa-solid fa-user"></i>
+          For Candidates
+        </h3>
+
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Latest Job Openings</li>
+          <li><i class="fa-solid fa-check"></i> Resume Support</li>
+          <li><i class="fa-solid fa-check"></i> Interview Scheduling</li>
+          <li><i class="fa-solid fa-check"></i> Career Guidance</li>
+        </ul>
+
+        <button class="popup-btn"
+          onclick="openCandidatePopup()">
+          Candidate Enquiry
+        </button>
+
+      </div>
+
+      <div class="audience-box">
+
+        <h3>
+          <i class="fa-solid fa-building"></i>
+          For Companies
+        </h3>
+
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Skilled Candidate Database</li>
+          <li><i class="fa-solid fa-check"></i> Fast Hiring Process</li>
+          <li><i class="fa-solid fa-check"></i> Experienced Recruiters</li>
+          <li><i class="fa-solid fa-check"></i> Pan India Recruitment</li>
+        </ul>
+
+        <button class="popup-btn"
+          onclick="openCompanyPopup()">
+          Company Enquiry
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact-info">
+
+    <div class="company-info">
+
+      <h2>Company Information</h2>
+
+      <p style="text-align:center; margin-top:15px;">
+        Selective Career provides recruitment and staffing services across India.
+      </p>
+
+      <div class="info-grid">
+
+        <div class="info-card">
+          <i class="fa-solid fa-envelope"></i>
+          <h3>Email</h3>
+          <p>selectivecareer@gmail.com</p>
+        </div>
+
+        <div class="info-card">
+          <i class="fa-brands fa-whatsapp"></i>
+          <h3>WhatsApp</h3>
+          <p>+91 99999 99999</p>
+        </div>
+
+        <div class="info-card">
+          <i class="fa-solid fa-phone"></i>
+          <h3>Phone</h3>
+          <p>+91 99999 99999</p>
+        </div>
+
+        <div class="info-card">
+          <i class="fa-solid fa-location-dot"></i>
+          <h3>Service Area</h3>
+          <p>Pan India Recruitment</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    <p>
+      © 2026 Selective Career Consultancy | Pan India Recruitment Services
+    </p>
+  </footer>
+
+  <!-- BACK TO HOME -->
+
+  <a href="#home" class="back-home">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
+
+  <!-- CANDIDATE POPUP -->
+
+  <div class="popup-overlay" id="candidatePopup">
+
+    <div class="popup-box">
+
+      <span class="close-btn" onclick="closeCandidatePopup()">&times;</span>
+
+      <h2>Candidate Enquiry Form</h2>
+
+      <form action="https://formsubmit.co/selectivecareer@gmail.com" method="POST">
+
+        <input type="hidden" name="_subject" value="New Candidate Enquiry">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" name="Name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Mobile Number</label>
+          <input type="tel" name="Mobile" required>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="Email">
+        </div>
+
+        <div class="form-group">
+          <label>Qualification</label>
+          <input type="text" name="Qualification">
+        </div>
+
+        <div class="form-group">
+          <label>Experience</label>
+          <input type="text" name="Experience">
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Submit Enquiry
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- COMPANY POPUP -->
+
+  <div class="popup-overlay" id="companyPopup">
+
+    <div class="popup-box">
+
+      <span class="close-btn" onclick="closeCompanyPopup()">&times;</span>
+
+      <h2>Company Hiring Enquiry</h2>
+
+      <form action="https://formsubmit.co/selectivecareer@gmail.com" method="POST">
+
+        <input type="hidden" name="_subject" value="New Company Enquiry">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" name="Company Name" required>
+        </div>
+
+        <div class="form-group">
+          <label>HR Name</label>
+          <input type="text" name="HR Name">
+        </div>
+
+        <div class="form-group">
+          <label>Mobile Number</label>
+          <input type="tel" name="Mobile">
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="Email">
+        </div>
+
+        <div class="form-group">
+          <label>Hiring Requirement</label>
+
+          <select name="Requirement">
+            <option>IT Hiring</option>
+            <option>Non IT Hiring</option>
+            <option>Retail Hiring</option>
+            <option>BPO Hiring</option>
+            <option>Bulk Hiring</option>
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="4" name="Message"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Submit Requirement
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- SERVICE POPUP -->
+
+  <div class="popup-overlay" id="servicePopup">
+
+    <div class="popup-box">
+
+      <span class="close-btn" onclick="closeServicePopup()">&times;</span>
+
+      <h2>Service Enquiry</h2>
+
+      <form action="https://formsubmit.co/selectivecareer@gmail.com" method="POST">
+
+        <input type="hidden" name="_subject" value="New Service Enquiry">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="form-group">
+          <label>Selected Service</label>
+          <input type="text" id="serviceName" name="Service" readonly>
+        </div>
+
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" name="Name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Mobile Number</label>
+          <input type="tel" name="Mobile" required>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="Email">
+        </div>
+
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="4" name="Message"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Submit Service Enquiry
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function openCandidatePopup() {
+      document.getElementById("candidatePopup").style.display = "flex";
+    }
+
+    function closeCandidatePopup() {
+      document.getElementById("candidatePopup").style.display = "none";
+    }
+
+    function openCompanyPopup() {
+      document.getElementById("companyPopup").style.display = "flex";
+    }
+
+    function closeCompanyPopup() {
+      document.getElementById("companyPopup").style.display = "none";
+    }
+
+    function openServicePopup(serviceName) {
+      document.getElementById("servicePopup").style.display = "flex";
+      document.getElementById("serviceName").value = serviceName;
+    }
+
+    function closeServicePopup() {
+      document.getElementById("servicePopup").style.display = "none";
+    }
+
+    window.onclick = function (event) {
+
+      let candidatePopup = document.getElementById("candidatePopup");
+      let companyPopup = document.getElementById("companyPopup");
+      let servicePopup = document.getElementById("servicePopup");
+
+      if (event.target == candidatePopup) {
+        candidatePopup.style.display = "none";
+      }
+
+      if (event.target == companyPopup) {
+        companyPopup.style.display = "none";
+      }
+
+      if (event.target == servicePopup) {
+        servicePopup.style.display = "none";
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html>
